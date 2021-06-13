@@ -1,10 +1,20 @@
-from flask import Flask, render_template, redirect,url_for
-app = Flask(__name__)
+from flask import Flask, render_template, redirect,url_for, request
+from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
+from werkzeug.utils import secure_filename
+import os
 
-@app.route("/")
+app = Flask(__name__)
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+db = SQLAlchemy(app)
+UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'static/uploads/')
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
+
+# USER INTERFACE ROUTES
 @app.route("/blog-list")
 def blog_list():
-    return render_template("blog-list.html")
+    blogs = Blog.query.all()
+    return render_template("blog-list.html", blogs=blogs)
 
 @app.route("/about-us")
 def about_us():
@@ -45,6 +55,38 @@ def register():
 @app.route("/shopping-cart")
 def shopping_cart():
     return render_template("shopping-cart.html")
+
+
+class Blog(db.Model):
+
+    __tablename__ = 'blog'
+    id = db.Column(db.Integer, primary_key=True)
+    title = db.Column(db.String(100), nullable=False)
+    short_description = db.Column(db.String(127), nullable=False)
+    description = db.Column(db.Text, nullable=False)
+    published_at = db.Column(db.DateTime, default = datetime.utcnow)
+    image = db.Column(db.String(20), default='static/uploads/download.jpeg')
+
+    def __repr__(self):
+        return self.title
+
+# ADMIN PANEL ROUTES
+@app.route("/admin-blog-add", methods=['GET', 'POST'])
+def admin_blog_add():
+    if request.method == 'POST':
+        file = request.files['file']
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        blog = Blog(
+            title = request.form['title'],
+            short_description = request.form['short-desc'], 
+            description = request.form['desc'],
+            image = filename
+        )
+        db.session.add(blog)
+        db.session.commit()
+        return redirect(url_for('blog_list'))
+    return render_template('admin/blog-add.html')
     
 if __name__ == "__main__" :
     app.run(debug=True)

@@ -1,0 +1,17 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+<form action="" method="POST">
+    <div class="form-group">
+        <label>Title:</label>
+        <input type="text" class="form-control" name="title" >
+    </div>
+    <div class="form-group">
+        <button class="btn btn-primary" type="submit">Add Blog Category</button>
+    </div>
+    </form>
+</div>
+ <a href="{{url_for('blog_add')}}"><button type="button"  class="btn btn-success float-right"
+    data-toggle="modal">See Blogs</button></a>
+{% endblock %}
