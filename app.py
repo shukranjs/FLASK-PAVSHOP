@@ -9,6 +9,7 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
+
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
@@ -63,18 +64,6 @@ def shopping_cart():
     return render_template("shopping-cart.html")
 
 
-
-
-class Blog(db.Model):
-
-    __tablename__= "blog"
-    id=db.Column(db.Integer,primary_key=True)
-    title=db.Column(db.String(100),nullable=False)
-    short_description=db.Column(db.String(127),nullable=False)
-    description=db.Column(db.Text,nullable=False)
-    published_at = db.Column(db.DateTime,default=datetime.utcnow)
-    image = db.Column(db.String(20),default='static/images/avatar-1.jpg')
-    
 
 class Blog(db.Model):
 
