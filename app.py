@@ -1,5 +1,4 @@
 from flask import Flask, render_template, redirect,url_for,request
-from flask import Flask, render_template, redirect,url_for, request
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
 from werkzeug.utils import secure_filename
@@ -9,12 +8,6 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
-
-app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
-db = SQLAlchemy(app)
-UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'static/uploads/')
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 
 # USER INTERFACE ROUTES
 @app.route("/blog-list")
