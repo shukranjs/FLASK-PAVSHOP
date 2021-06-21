@@ -1,6 +1,5 @@
 from flask import Flask, render_template, redirect,url_for,request
 from flask_sqlalchemy import SQLAlchemy
-from datetime import datetime
 from werkzeug.utils import secure_filename
 import os
 UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'static/uploads/')
@@ -8,6 +7,8 @@ app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
 db = SQLAlchemy(app)
+
+from models import Blog
 
 # USER INTERFACE ROUTES
 @app.route("/blog-list")
@@ -59,7 +60,6 @@ def shopping_cart():
 
 
 class Blog(db.Model):
-
     __tablename__ = 'blog'
     id = db.Column(db.Integer, primary_key=True)
     title = db.Column(db.String(100), nullable=False)
