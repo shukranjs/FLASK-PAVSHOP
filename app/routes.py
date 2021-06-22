@@ -1,21 +1,18 @@
-from flask import Flask, render_template, redirect,url_for,request
-from flask_sqlalchemy import SQLAlchemy
+from flask import render_template,url_for,redirect,request
+from app import app
+from app import db
+from app.models import Blog
 from werkzeug.utils import secure_filename
 import os
 UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'static/uploads/')
-app = Flask(__name__)
-app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
-db = SQLAlchemy(app)
 
-from models import Blog
 
 # USER INTERFACE ROUTES
 @app.route("/blog-list")
 def blog_list():
     blogs = Blog.query.all()
     return render_template("blog-list.html",blogs=blogs)
-    return render_template("blog-list.html", blogs=blogs)
+
 
 @app.route("/about-us")
 def about_us():
@@ -58,20 +55,6 @@ def shopping_cart():
     return render_template("shopping-cart.html")
 
 
-
-class Blog(db.Model):
-    __tablename__ = 'blog'
-    id = db.Column(db.Integer, primary_key=True)
-    title = db.Column(db.String(100), nullable=False)
-    short_description = db.Column(db.String(127), nullable=False)
-    description = db.Column(db.Text, nullable=False)
-    published_at = db.Column(db.DateTime, default = datetime.utcnow)
-    image = db.Column(db.String(20), default='static/uploads/download.jpeg')
-
-
-    def __repr__(self):
-        return self.title
-
 # ADMIN PANEL ROUTES
 
 @app.route("/admin-blog-add", methods=['GET', 'POST']) 
@@ -90,6 +73,3 @@ def admin_blog_add():
         db.session.commit()
         return redirect(url_for('blog_list'))
     return render_template ("admin/blog-add.html")
-
-if __name__ == "__main__" :
-    app.run(debug=True)
