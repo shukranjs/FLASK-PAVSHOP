@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
+{% block title %}
+Product-detail
 
+{% endblock title %}
 {% block content %}
     <!-- Popular Products -->
     <section class="padding-top-100 padding-bottom-100">
@@ -219,7 +222,7 @@
           <!-- Item -->
           <div class="item"> 
             <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="../static/images/product-1.jpg" alt="" > 
+            <div class="item-img"> <img class="img-1" src="../static/uploads/{{product.image}}" alt=""> 
               <!-- Overlay -->
               <div class="overlay">
                 <div class="position-center-center">
@@ -228,67 +231,11 @@
               </div>
             </div>
             <!-- Item Name -->
-            <div class="item-name"> <a href="#.">stone cup</a>
-              <p>Lorem ipsum dolor sit amet</p>
+            <div class="item-name"> <a href="#.">{{product.title}}</a>
+              <p>{{product.short_description}}</p>
             </div>
             <!-- Price --> 
-            <span class="price"><small>$</small>299</span> </div>
-          
-          <!-- Item -->
-          <div class="item"> 
-            <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="../static/images/product-2.jpg" alt="" > 
-              <!-- Overlay -->
-              <div class="overlay">
-                <div class="position-center-center">
-                  <div class="inn"><a href="images/product-2.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <!-- Item Name -->
-            <div class="item-name"> <a href="#.">gray bag</a>
-              <p>Lorem ipsum dolor sit amet</p>
-            </div>
-            <!-- Price --> 
-            <span class="price"><small>$</small>299</span> </div>
-          
-          <!-- Item -->
-          <div class="item"> 
-            <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="../static/images/product-3.jpg" alt="" > 
-              <!-- Overlay -->
-              <div class="overlay">
-                <div class="position-center-center">
-                  <div class="inn"><a href="images/product-3.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <!-- Item Name -->
-            <div class="item-name"> <a href="#.">chiar</a>
-              <p>Lorem ipsum dolor sit amet</p>
-            </div>
-            <!-- Price --> 
-            <span class="price"><small>$</small>299</span> </div>
-          
-          <!-- Item -->
-          <div class="item"> 
-            <!-- Item img -->
-            <div class="item-img"> <img class="img-1" src="../static/images/product-4.jpg" alt="" > 
-              <!-- Overlay -->
-              <div class="overlay">
-                <div class="position-center-center">
-                  <div class="inn"><a href="images/product-4.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
-                </div>
-              </div>
-            </div>
-            <!-- Item Name -->
-            <div class="item-name"> <a href="#.">STool</a>
-              <p>Lorem ipsum dolor sit amet</p>
-            </div>
-            <!-- Price --> 
-            <span class="price"><small>$</small>299</span> </div>
-        </div>
-      </div>
+            <span class="price"><small>$</small>{{product.price}}</span> </div>
     </section>
     
 

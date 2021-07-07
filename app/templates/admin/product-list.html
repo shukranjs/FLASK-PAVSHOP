@@ -1,0 +1,43 @@
+{% extends 'admin/base.html' %}
+
+{% block content %}
+
+<div class="container">
+    <div class="row">
+        <div class="col md-12">
+            <div class="jumbotron p-3">
+                <h2>Manage Products <a href="{{url_for('admin_add_product')}}"><button type="button"  class="btn btn-success float-right"
+                data-toggle="modal">Add New Product</button> </h2></a>
+                <table class="table table-hover table-dark">
+                    <tr>
+                        <th>ID</th>
+                        <th>Title</th>
+                        <th>Price</th>
+                        <th>Designer</th>
+                        <th>Brand</th>
+                        <th>Short Description</th>
+                        <th>Description</th>
+                        <th>Image</th>
+                    </tr>
+                    {% for product in products %}
+                    <tr>
+                        <td>{{product.id}}</td>
+                        <td>{{product.title}}</td>
+                        <td>{{product.price}}</td>
+                        <td>{{product.designer}}</td>
+                        <td>{{product.brand}} </td>
+                        <td>{{product.short_description}}</td>
+                        <td>{{product.description}}</td>
+                        <td>{{product.image}}</td>
+                        <td>
+                            <a href="{{url_for('admin_product_edit', id=product.id)}}" class="btn btn-info btn-xs">Edit</a>
+                            <a href="{{url_for('admin_product_delete', id=product.id)}}" class="btn btn-danger btn-xs" 
+                            onclick="return confirm('Are You Sure To Delete ?')">Delete</a>
+                        </td>
+                    </tr>
+                    {% endfor %}
+                    
+</table>
+</div>
+
+{% endblock %}

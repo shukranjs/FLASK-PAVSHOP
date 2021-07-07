@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
+{% block title %}
+Blog-list
 
+{% endblock title %}
 {% block content %}
     <!-- Blog List -->
     <section class="blog-list blog-list-3 padding-top-100 padding-bottom-100">
@@ -7,7 +10,7 @@
         <div class="row">
           <div class="col-md-9"> 
             
-            {% for blog in blogs %}
+            {% for blog in blogs %} 
             <!-- Article -->
             <article>
               <div class="row">
@@ -22,7 +25,7 @@
                   <!-- Post Content -->
                   <div class="text-left">
                     <p>{{blog.short_description}}</p>
-                    <a href="#." class="red-more">READ MORE</a> </div>
+                    <a href="{{url_for("blog_detail",id=blog.id)}}" class="red-more">READ MORE</a> </div>
                 </div>
               </div>
             </article>

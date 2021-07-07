@@ -8,7 +8,7 @@ filelock==3.0.12
 Flask==2.0.1
 Flask-SQLAlchemy==2.5.1
 greenlet==1.1.0
-<<<<<<< HEAD
+
 ipython==7.24.1
 ipython-genutils==0.2.0
 itsdangerous==2.0.0
@@ -26,10 +26,9 @@ traitlets==5.0.5
 virtualenv==1.8.2
 wcwidth==0.2.5
 Werkzeug==2.0.0
-=======
+
 itsdangerous==2.0.1
 Jinja2==3.0.1
 MarkupSafe==2.0.1
 SQLAlchemy==1.4.18
 Werkzeug==2.0.1
->>>>>>> 4b30fc59c521eb8271986fcd3537d6cfbcfeacc7

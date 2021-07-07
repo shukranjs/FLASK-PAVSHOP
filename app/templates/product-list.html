@@ -1,5 +1,8 @@
 {% extends 'base.html' %}
+{% block title %}
+Product-list
 
+{% endblock title %}
 {% block content %}
     <!-- Products -->
     <section class="shop-page padding-top-100 padding-bottom-100">
@@ -36,190 +39,27 @@
             
             <!-- Popular Item Slide -->
             <div class="papular-block row single-img-demos"> 
-              
+              {% for product in products  %}
               <!-- Item -->
               <div class="col-md-4">
                 <div class="item"> 
                   <!-- Item img -->
-                  <div class="item-img"> <img class="img-1" src="images/product-2-1.jpg" alt="" >
-                    <!-- Overlay -->
-                    <div class="overlay">
+                  <div class="item-img"> <a href="{{url_for('product_detail',id=product.id)}}"><img class="img-1"  src="../static/uploads/{{product.image}}" alt="" ></a>
+                    <div class="overlay"> 
                       <div class="position-center-center">
                         <div class="inn"><a href="images/product-2-1.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
                       </div>
                     </div>
                   </div>
                   <!-- Item Name -->
-                  <div class="item-name"> <a href="#.">stone cup</a>
-                    <p>Lorem ipsum dolor sit amet</p>
+                  <div class="item-name"> <a href="{{url_for('product_detail',id=product.id)}}">{{product.title}}</a>
+                    <p>{{product.short_description}}</p>
                   </div>
                   <!-- Price --> 
-                  <span class="price"><small>$</small>299</span> </div>
+                  <span class="price"><small>$</small>{{product.price}}</span> </div>
               </div>
-              
-              <!-- Item -->
-              <div class="col-md-4">
-                <div class="item"> 
-                  <!-- Sale Tags -->
-                  <div class="on-sale"> 10% <span>OFF</span> </div>
-                  
-                  <!-- Item img -->
-                  <div class="item-img"> <img class="img-1" src="../static/images/product-2-2.jpg" alt="" >
-                    <!-- Overlay -->
-                    <div class="overlay">
-                      <div class="position-center-center">
-                        <div class="inn"><a href="../static/images/product-2-2.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Item Name -->
-                  <div class="item-name"> <a href="#.">gray bag</a>
-                    <p>Lorem ipsum dolor sit amet</p>
-                  </div>
-                  <!-- Price --> 
-                  <span class="price"><small>$</small>299</span> </div>
-              </div>
-              
-              <!-- Item -->
-              <div class="col-md-4">
-                <div class="item"> 
-                  <!-- Item img -->
-                  <div class="item-img"> <img class="img-1" src="../static/images/product-2-3.jpg" alt="" > 
-                    <!-- Overlay -->
-                    <div class="overlay">
-                      <div class="position-center-center">
-                        <div class="inn"><a href="../static/images/product-2-3.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Item Name -->
-                  <div class="item-name"> <a href="#.">chiar</a>
-                    <p>Lorem ipsum dolor sit amet</p>
-                  </div>
-                  <!-- Price --> 
-                  <span class="price"><small>$</small>299</span> </div>
-              </div>
-              
-              <!-- Item -->
-              <div class="col-md-4">
-                <div class="item"> 
-                  <!-- Item img -->
-                  <div class="item-img"> <img class="img-1" src="../static/images/product-2-4.jpg" alt="" > 
-                    <!-- Overlay -->
-                    <div class="overlay">
-                      <div class="position-center-center">
-                        <div class="inn"><a href="../static/images/product-2-4.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Item Name -->
-                  <div class="item-name"> <a href="#.">STool</a>
-                    <p>Lorem ipsum dolor sit amet</p>
-                  </div>
-                  <!-- Price --> 
-                  <span class="price"><small>$</small>299</span> </div>
-              </div>
-              
-              <!-- Item -->
-              <div class="col-md-4">
-                <div class="item"> 
-                  <!-- Item img -->
-                  <div class="item-img"> <img class="img-1" src="../static/images/product-5.jpg" alt="" > 
-                    <!-- Overlay -->
-                    <div class="overlay">
-                      <div class="position-center-center">
-                        <div class="inn"><a href="../static/images/product-5.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Item Name -->
-                  <div class="item-name"> <a href="#.">stone cup</a>
-                    <p>Lorem ipsum dolor sit amet</p>
-                  </div>
-                  <!-- Price --> 
-                  <span class="price"><small>$</small>299</span> </div>
-              </div>
-              
-              <!-- Item -->
-              <div class="col-md-4">
-                <div class="item"> 
-                  <!-- Item img -->
-                  <div class="item-img"> <img class="img-1" src="../static/images/product-6.jpg" alt="" > 
-                    <!-- Overlay -->
-                    <div class="overlay">
-                      <div class="position-center-center">
-                        <div class="inn"><a href="../static/images/product-6.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Item Name -->
-                  <div class="item-name"> <a href="#.">gray bag</a>
-                    <p>Lorem ipsum dolor sit amet</p>
-                  </div>
-                  <!-- Price --> 
-                  <span class="price"><small>$</small>299</span> </div>
-              </div>
-              
-              <!-- Item -->
-              <div class="col-md-4">
-                <div class="item"> 
-                  <!-- Item img -->
-                  <div class="item-img"> <img class="img-1" src="../static/images/product-7.jpg" alt="" > 
-                    <!-- Overlay -->
-                    <div class="overlay">
-                      <div class="position-center-center">
-                        <div class="inn"><a href="../static/images/product-7.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Item Name -->
-                  <div class="item-name"> <a href="#.">chiar</a>
-                    <p>Lorem ipsum dolor sit amet</p>
-                  </div>
-                  <!-- Price --> 
-                  <span class="price"><small>$</small>299</span> </div>
-              </div>
-              
-              <!-- Item -->
-              <div class="col-md-4">
-                <div class="item"> 
-                  <!-- Item img -->
-                  <div class="item-img"> <img class="img-1" src="../static/images/product-8.jpg" alt="" > 
-                    <!-- Overlay -->
-                    <div class="overlay">
-                      <div class="position-center-center">
-                        <div class="inn"><a href="../static/images/product-8.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Item Name -->
-                  <div class="item-name"> <a href="#.">STool</a>
-                    <p>Lorem ipsum dolor sit amet</p>
-                  </div>
-                  <!-- Price --> 
-                  <span class="price"><small>$</small>299</span> </div>
-              </div>
-              
-              <!-- Item -->
-              <div class="col-md-4">
-                <div class="item"> 
-                  <!-- Item img -->
-                  <div class="item-img"> <img class="img-1" src="../static/images/product-9.jpg" alt="" > 
-                    <!-- Overlay -->
-                    <div class="overlay">
-                      <div class="position-center-center">
-                        <div class="inn"><a href="../static/images/product-9.jpg" data-lighter><i class="icon-magnifier"></i></a> <a href="#."><i class="icon-basket"></i></a> <a href="#." ><i class="icon-heart"></i></a></div>
-                      </div>
-                    </div>
-                  </div>
-                  <!-- Item Name -->
-                  <div class="item-name"> <a href="#.">stone cup</a>
-                    <p>Lorem ipsum dolor sit amet</p>
-                  </div>
-                  <!-- Price --> 
-                  <span class="price"><small>$</small>299</span> </div>
-              </div>
-            </div>
+              {% endfor %}
+          
             
             <!-- Pagination -->
             <ul class="pagination in-center">
