@@ -2,7 +2,6 @@ from flask import render_template,url_for,redirect,request
 from app import app
 from app import db
 from app.models import Blog,Product
-from werkzeug.utils import secure_filename
 import os
 UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'static/uploads/')
 
@@ -37,7 +36,7 @@ def checkout():
 def contact():
     return render_template("contact.html")
 
-@app.route("/index")
+@app.route("/")
 def index():
     return render_template("index.html")
 

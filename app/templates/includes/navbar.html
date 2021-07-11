@@ -14,20 +14,38 @@
           <div class="collapse navbar-collapse" id="nav-open-btn">
             <ul class="nav">
               <li class="dropdown active"> <a href="{{url_for("index")}}" class="dropdown-toggle">Home</a>
+                <ul class="dropdown-menu">
+                <li> <a href="index.html">Index Default</a> </li>
+                <li> <a href="index-1.html">Index 2</a> </li>
+                <li> <a href="index-2.html">Index 3</a></li>
+                <li> <a href="index-header-1.html">Index Header 1</a></li>
+                <li> <a href="index-header-2.html">Index Header 2</a></li>
+                <li> <a href="index-header-3.html">Index Header 3</a></li>
+                <li> <a href="index-header-4.html">Index Header 4</a></li>
+              </ul>
                
               </li>
               <li class="dropdown"> <a href="#." class="dropdown-toggle" data-toggle="dropdown">Pages</a>
                 <ul class="dropdown-menu">
   
-                  <li> <a href="shopping-cart.html">Shopping Cart</a> </li>
-                  <li> <a href="checkout.html">Checkout</a> </li>
-                  <li> <a href="contact.html">Contact</a> </li>
+                  <li> <a href="{{url_for('shopping_cart')}}">Shopping Cart</a> </li>
+                  <li> <a href="{{url_for('checkout')}}">Checkout</a> </li>
+                  <li> <a href="{{url_for('contact')}}">Contact</a> </li>
                 
                 </ul>
               </li>
               <li> <a href="{{url_for("about_us")}}">About </a> </li>
               <li> <a href="{{url_for('blog_list')}}">Blogs</a> </li>
-            <li> <a href="product-list.html">Products</a> </li>
+            <li> <a href="{{url_for('productlist')}}">Products</a> </li>
+              <li class="dropdown"> <a href="#." class="dropdown-toggle" data-toggle="dropdown">Register<role="button" ><i class="icon-user"></i></a>
+                <ul class="dropdown-menu">
+                  <h6>HELLO! Jhon Smith</h6>
+                </li>
+                <li><a href="#">MY CART</a></li>
+                <li><a href="#">ACCOUNT INFO</a></li>
+                <li><a href="#">LOG OUT</a></li>
+              </ul>
+
               
               <!-- Two Link Option -->
               <li class="dropdown"> <a href="#." class="dropdown-toggle" data-toggle="dropdown">Designer</a>
@@ -43,6 +61,7 @@
                       <li> <a href="shop_01.html"> bra</a></li>
                       <li> <a href="shop_01.html"> babydools</a> </li>
                     </ul>
+                    
                     <ul class="col-sm-6">
                       <li> <a href="shop_01.html">deodornts</a></li>
                       <li> <a href="shop_01.html"> skin care</a></li>
@@ -53,20 +72,7 @@
                       <li> <a href="shop_01.html"> gold rings</a></li>
                       <li> <a href="shop_01.html"> jewellery</a> </li>
 
-         <!-- NAV -->
-        <div class="collapse navbar-collapse" id="nav-open-btn">
-          <ul class="nav">
-            <li class="dropdown active"> <a href="#." class="dropdown-toggle" data-toggle="dropdown">Home</a>
-              <ul class="dropdown-menu">
-                <li> <a href="index.html">Index Default</a> </li>
-                <li> <a href="index-1.html">Index 2</a> </li>
-                <li> <a href="index-2.html">Index 3</a></li>
-                <li> <a href="index-header-1.html">Index Header 1</a></li>
-                <li> <a href="index-header-2.html">Index Header 2</a></li>
-                <li> <a href="index-header-3.html">Index Header 3</a></li>
-                <li> <a href="index-header-4.html">Index Header 4</a></li>
-              </ul>
-            </li>
+     
             <li class="dropdown"> <a href="#." class="dropdown-toggle" data-toggle="dropdown">Pages</a>
              <li class="dropdown"> <a href="#.">Blogs</a>
               <ul class="dropdown-menu">
@@ -80,35 +86,6 @@
             <li> <a href="{{url_for('blog_list')}}">Blogs</a> </li>
             <li> <a href="product-list.html">Products</a> </li>
             <li> <a href="about-us_01.html">About </a> </li>
-            
-            
-            <!-- Two Link Option -->
-            <li class="dropdown"> <a href="#." class="dropdown-toggle" data-toggle="dropdown">Designer</a>
-              <div class="dropdown-menu two-option">
-                <div class="row">
-                  <ul class="col-sm-6">
-                    <li> <a href="shop_01.html">summer store</a></li>
-                    <li> <a href="shop_01.html"> sarees</a></li>
-                    <li> <a href="shop_01.html"> kurtas</a></li>
-                    <li> <a href="shop_01.html"> shorts & tshirts</a></li>
-                    <li> <a href="shop_01.html"> winter wear</a></li>
-                    <li> <a href="shop_01.html"> jeans</a></li>
-                    <li> <a href="shop_01.html"> bra</a></li>
-                    <li> <a href="shop_01.html"> babydools</a> </li>
-                  </ul>
-                  <ul class="col-sm-6">
-                    <li> <a href="shop_01.html">deodornts</a></li>
-                    <li> <a href="shop_01.html"> skin care</a></li>
-                    <li> <a href="shop_01.html"> make up</a></li>
-                    <li> <a href="shop_01.html"> watch</a></li>
-                    <li> <a href="shop_01.html"> siting bags</a></li>
-                    <li> <a href="shop_01.html"> totes</a></li>
-                    <li> <a href="shop_01.html"> gold rings</a></li>
-                    <li> <a href="shop_01.html"> jewellery</a> </li>
-                  </ul>
-                </div>
-              </div>
-            </li>
             
             <!-- MEGA MENU -->
             <li class="dropdown megamenu"> <a href="#." class="dropdown-toggle" data-toggle="dropdown">store</a>
