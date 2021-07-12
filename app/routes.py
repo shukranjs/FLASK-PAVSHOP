@@ -1,7 +1,9 @@
+from app.forms import RegistrationForm
 from flask import render_template,url_for,redirect,request
 from app import app
 from app import db
-from app.models import Blog,Product
+from app.models import Blog,Product, User
+from werkzeug.utils import secure_filename
 import os
 UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'static/uploads/')
 
@@ -52,7 +54,21 @@ def product_detail(id):
 
 @app.route("/register")
 def register():
-    return render_template("register.html")
+    form = RegistrationForm()
+    if form.validate_on_submit():
+        file = form.image.data
+        filename = secure_filename(file.filename)
+        file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+        user = User(
+            full_name = form.full_name.data,
+            email = form.email.data,
+            age = form.age.data,
+            address = form.address.data,
+            image=file
+        )
+        db.session.add(user)
+        db.session.commit()
+    return render_template("register.html",form=form)
 
 @app.route("/shopping-cart")
 def shopping_cart():

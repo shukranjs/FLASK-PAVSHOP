@@ -23,7 +23,7 @@ class User(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     full_name = db.Column(db.String(120), nullable=False)
     email = db.Column(db.String(120), nullable=False)
-    adress = db.Column(db.String(120), nullable=False)
+    address = db.Column(db.String(120), nullable=False)
     image = db.Column(db.String(20))
     password = db.Column(db.String(120))
     age = db.Column(db.Integer)

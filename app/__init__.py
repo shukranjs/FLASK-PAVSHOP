@@ -7,6 +7,7 @@ UPLOAD_FOLDER = os.path.join(os.path.dirname(os.path.realpath(__file__)), 'stati
 app = Flask(__name__)
 app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///data.db'
+app.config['SECRET_KEY'] = '123'
 db = SQLAlchemy(app)
 migrate = Migrate(app,db)
 from app import routes
